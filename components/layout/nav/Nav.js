@@ -47,7 +47,7 @@ function Nav() {
               </li>
               <div className={classes["cta-mobile"]}>
                 <li>
-                  <Link className={classes.link} href="">
+                  <Link className={classes.link} href="#contact-form">
                     Contact Us
                   </Link>
                 </li>
