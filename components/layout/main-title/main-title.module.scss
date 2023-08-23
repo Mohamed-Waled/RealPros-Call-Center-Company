@@ -1,0 +1,44 @@
+@import "@/styles/imports";
+
+.main-title {
+  color: white;
+  margin: 20px auto;
+  .main {
+    width: fit-content;
+    font-family: $headings-font;
+    font-weight: 200;
+    font-size: 45px;
+    text-align: center;
+    margin: 10px auto;
+    padding: 0 20px;
+    letter-spacing: 1px;
+  }
+  .slogan {
+    width: fit-content;
+    position: relative;
+    font-weight: 300;
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin: -5px auto 0;
+  }
+  .slogan:before {
+    content: "";
+    position: absolute;
+    background-color: white;
+    width: 20%;
+    height: 1px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -60px;
+  }
+  .slogan:after {
+    content: "";
+    position: absolute;
+    background-color: white;
+    width: 20%;
+    height: 1px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -60px;
+  }
+}

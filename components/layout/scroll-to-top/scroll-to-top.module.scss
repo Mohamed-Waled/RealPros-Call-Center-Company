@@ -1,0 +1,24 @@
+@import "@/styles/imports";
+
+.scroll-to-top {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  width: 40px;
+  height: 40px;
+  background-color: $main-color;
+  @include flexCenter();
+  font-size: 1.4rem;
+  border-radius: 10px;
+  cursor: pointer;
+  svg {
+    filter: invert(95%) sepia(95%) saturate(19%) hue-rotate(351deg)
+      brightness(106%) contrast(104%);
+  }
+}
+
+@media (max-width: 425px) {
+  .scroll-to-top {
+    cursor: default;
+  }
+}

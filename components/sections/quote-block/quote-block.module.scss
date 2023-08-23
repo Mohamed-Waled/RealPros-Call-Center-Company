@@ -1,0 +1,131 @@
+@import "@/styles/imports";
+
+.quote-block {
+  margin: 50px auto -30px;
+  position: relative;
+  height: 500px;
+  .top {
+    width: 950px;
+    height: 300px;
+    @include flexCenter();
+    background-color: $main-color-alt;
+    img {
+      max-width: 100%;
+    }
+  }
+  .bottom {
+    width: 650px;
+    height: 200px;
+    @include flexCenter();
+    flex-direction: column;
+    background-color: $accent-color-alt;
+    color: $text-color;
+    position: absolute;
+    right: 0;
+    bottom: 50px;
+    .quote {
+      font-family: $headings-font;
+      font-weight: 400;
+      letter-spacing: 2px;
+      margin: 20px 0;
+      line-height: 1.4;
+      text-align: center;
+      padding: 20px;
+    }
+    .told-by {
+      text-align: center;
+      font-weight: 300;
+      line-height: $main-line-height;
+      letter-spacing: 1px;
+    }
+    span {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      @include flexCenter();
+      font-size: 40px;
+    }
+    .top-left {
+      filter: invert(82%) sepia(16%) saturate(543%) hue-rotate(227deg)
+        brightness(94%) contrast(94%);
+      top: 0;
+      left: 12px;
+    }
+    .bottom-right {
+      filter: invert(3%) sepia(4%) saturate(4211%) hue-rotate(201deg)
+        brightness(92%) contrast(95%);
+      bottom: 0;
+      right: 12px;
+    }
+  }
+}
+
+@media (max-width: 950px) {
+  .quote-block {
+    .top {
+      width: 100%;
+    }
+    .bottom {
+      width: 650px;
+      height: 200px;
+      @include flexCenter();
+      flex-direction: column;
+      background-color: $accent-color-alt;
+      color: $text-color;
+      position: absolute;
+      right: 0;
+      bottom: 50px;
+      .quote {
+        font-family: $headings-font;
+        font-weight: 400;
+        letter-spacing: 2px;
+        margin: 20px 0;
+        line-height: 1.4;
+      }
+      .told-by {
+        font-weight: 300;
+        line-height: $main-line-height;
+        letter-spacing: 1px;
+      }
+      span {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        @include flexCenter();
+        font-size: 40px;
+      }
+      .top-left {
+        filter: invert(82%) sepia(16%) saturate(543%) hue-rotate(227deg)
+          brightness(94%) contrast(94%);
+        top: 0;
+        left: 12px;
+      }
+      .bottom-right {
+        filter: invert(3%) sepia(4%) saturate(4211%) hue-rotate(201deg)
+          brightness(92%) contrast(95%);
+        bottom: 0;
+        right: 12px;
+      }
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .quote-block {
+    .bottom {
+      width: 100%;
+      bottom: 0;
+      .quote {
+        padding: 10px;
+        text-align: center;
+      }
+      .told-by {
+        text-align: center;
+      }
+      .top-left {
+        filter: invert(3%) sepia(4%) saturate(4211%) hue-rotate(201deg)
+          brightness(92%) contrast(95%);
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+@import "@/styles/imports";
+
+.content-wraper {
+  width: 100%;
+  background-color: $background-color;
+  padding: 20px 0 0;
+  margin-top: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}

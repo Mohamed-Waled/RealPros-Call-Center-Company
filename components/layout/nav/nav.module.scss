@@ -1,0 +1,101 @@
+@import "@/styles/imports";
+
+.nav {
+  width: fit-content;
+  position: relative;
+  ul {
+    @include flexBox(space-between, center);
+    .cta-mobile {
+      display: none;
+    }
+    li {
+      .link {
+        display: block;
+        padding: 20px 25px;
+        color: $text-color;
+        position: relative;
+        transition: $main-transition;
+      }
+      .link:hover {
+        color: $main-color;
+      }
+      .link:before {
+        content: "";
+        position: absolute;
+        width: 75%;
+        height: 3px;
+        left: 50%;
+        transform: translateX(-50%) scale(0);
+        bottom: 0;
+        background-color: $main-color-alt;
+        transition: $main-transition;
+        transform-origin: left;
+      }
+      .link:hover:before {
+        transform: translateX(-50%) scale(1);
+        transition: $main-transition;
+      }
+    }
+  }
+}
+
+@media (max-width: 1350px) {
+  .nav {
+    ul {
+      li {
+        .link {
+          padding: 15px 20px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .nav {
+    ul {
+      li {
+        .link {
+          padding: 15px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 955px) {
+  .nav {
+    ul {
+      li {
+        .link {
+          padding: 15px 10px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .nav {
+    width: fit-content;
+    position: absolute;
+    top: 75px;
+    right: 20px;
+    background-color: $accent-color;
+    border-radius: 10px;
+    transition: $main-transition;
+    z-index: 10;
+    ul {
+      flex-direction: column;
+      .cta-mobile {
+        display: block;
+      }
+      li {
+        .link {
+          padding: 10px 25px;
+          cursor: default;
+        }
+      }
+    }
+  }
+}

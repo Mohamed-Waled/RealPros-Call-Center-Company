@@ -1,0 +1,117 @@
+@import "@/styles/imports";
+
+.footer {
+  background-color: $accent-color;
+  .top {
+    @include flexBox(space-around, flex-start);
+    flex-wrap: wrap;
+    padding: 20px 50px;
+    .block {
+      width: 300px;
+      margin: 20px;
+      .logo {
+        .copy-right {
+          color: $text-color;
+          font-weight: 200;
+          line-height: $main-line-height;
+          letter-spacing: 2px;
+          padding: 20px;
+          span {
+            font-weight: 500;
+            letter-spacing: 3px;
+            margin: 10px 0;
+            line-height: 1.4;
+          }
+        }
+      }
+      .email {
+        padding: 20px;
+        color: $text-color;
+        .head {
+          font-weight: 500;
+          letter-spacing: 3px;
+          margin: 10px 0;
+          line-height: 1.4;
+        }
+        .foot {
+          font-weight: 300;
+          line-height: $main-line-height;
+          letter-spacing: 2px;
+        }
+      }
+      .address {
+        padding: 0 20px 20px;
+        color: $text-color;
+        .head {
+          font-weight: 500;
+          letter-spacing: 3px;
+          margin: 10px 0;
+          line-height: 1.4;
+        }
+        .foot {
+          font-weight: 300;
+          line-height: $main-line-height;
+          letter-spacing: 2px;
+        }
+      }
+      .socials {
+        @include flexBox(flex-start, center);
+        padding: 0 20px;
+        margin: 10px 0;
+        div {
+          width: 40px;
+          height: 40px;
+          @include flexCenter();
+          margin-right: 25px;
+          svg {
+            max-width: 100%;
+            transition: $main-transition;
+          }
+        }
+        div:hover svg {
+          transform: scale(1.2);
+        }
+      }
+      .site-map {
+        @include flexBox(center, flex-start);
+        flex-direction: column;
+        padding: 0 20px;
+        margin: 10px 0 0;
+        color: $text-color;
+        p {
+          font-weight: 500;
+          letter-spacing: 3px;
+          margin: 5px 0;
+          line-height: 1.4;
+        }
+        ul {
+          li {
+            margin: 15px 0;
+            a {
+              padding: 5px;
+              color: $text-color;
+            }
+          }
+        }
+      }
+    }
+  }
+  .bottom {
+    border-top: 1px solid $main-color;
+    padding: 20px;
+    color: $text-color;
+    text-align: center;
+    .quote {
+      font-family: $headings-font;
+      font-weight: 300;
+      letter-spacing: 3px;
+      margin: 10px 0;
+      line-height: 1.4;
+    }
+    .told {
+      font-weight: 200;
+      line-height: $main-line-height;
+      letter-spacing: 2px;
+    }
+  }
+}

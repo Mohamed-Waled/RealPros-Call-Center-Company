@@ -1,0 +1,158 @@
+@import "../../../styles/imports";
+
+.overlay {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba($color: $accent-color, $alpha: 0.5);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9.1px);
+  z-index: 500;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
+  z-index: 501;
+  width: 600px;
+  height: 90vh;
+  background-color: #006666;
+  padding: 30px;
+  border-radius: 10px;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+  .top {
+    color: $text-color;
+    text-align: center;
+    h2 {
+      font-family: $headings-font;
+      font-weight: 400;
+      letter-spacing: 2px;
+      font-size: 35px;
+    }
+    p {
+      font-weight: 300;
+      letter-spacing: 1px;
+    }
+    .close {
+      width: 30px;
+      height: 30px;
+      background-color: black;
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      cursor: pointer;
+      span {
+        display: block;
+        width: 25px;
+        height: 4px;
+        background-color: $white-color;
+        border-radius: 10px;
+        transition: $main-transition;
+      }
+      .top {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+      .bottom {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+    }
+    .close:hover {
+      span {
+        background-color: red;
+      }
+    }
+  }
+  .bottom {
+    form {
+      @include flexBox(space-between, center);
+      flex-direction: column;
+      .input-container {
+        width: 80%;
+        @include flexBox(space-between, flex-start);
+        flex-direction: column;
+        margin: 10px 0;
+        .input-label {
+          color: $text-color;
+          text-align: left;
+          font-size: 14px;
+          margin: 0 0 10px 10px;
+        }
+        .input {
+          width: 100%;
+          padding: 10px;
+          border: 0;
+          outline: 0;
+          border-radius: 10px;
+          font-family: $paragraph-font;
+        }
+        .error {
+          font-size: 14px;
+          padding: 0 10px 0;
+          margin: 10px 0 0;
+          color: black;
+        }
+        .phone-input {
+          width: 100%;
+          border-radius: 10px;
+          outline: 0;
+          border: 0;
+        }
+        .select {
+          width: 100%;
+          padding: 10px;
+          border-radius: 10px;
+          outline: 0;
+          border: 0;
+          option {
+            padding: 10px;
+          }
+        }
+      }
+      button {
+        margin: 20px auto;
+        padding: 10px 50px;
+        background-color: $background-color;
+        font-family: $headings-font;
+        border: 2px solid #055555;
+        outline: 0;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: $main-transition;
+        letter-spacing: 2px;
+        font-weight: 500;
+        color: $white-color;
+      }
+      button:hover {
+        background-color: $accent-color;
+        color: $main-color;
+      }
+    }
+  }
+}
+
+@media (max-width: 649px) {
+  .modal {
+    width: 90%;
+    padding: 10px;
+    .bottom {
+      form {
+        .input-container {
+          width: 90%;
+        }
+      }
+    }
+  }
+}

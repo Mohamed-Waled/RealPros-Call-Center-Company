@@ -1,0 +1,38 @@
+/*! purgecss start ignore */
+@import "aos/src/sass/aos.scss"; /*! purgecss end ignore */
+@import "./imports";
+
+// Global Rules Start
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  user-select: none;
+}
+
+body {
+  font-family: $paragraph-font;
+  background-color: $background-color;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  transition: $main-transition;
+  background-color: $accent-color;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $main-color-alt;
+}

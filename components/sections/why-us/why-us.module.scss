@@ -1,0 +1,68 @@
+@import "@/styles/imports";
+
+.all {
+  @include flexBox(space-around, center);
+  flex-direction: row-reverse;
+  .photo {
+    width: 35%;
+    @include flexCenter();
+    img {
+      max-width: 100%;
+    }
+  }
+  .why {
+    width: 60%;
+    margin: 20px;
+    @include flexBox(space-around, flex-start);
+    flex-wrap: wrap;
+    .box {
+      margin: 20px 0px;
+      width: 90%;
+      @include flexBox(space-around, flex-start);
+      background-color: $accent-color;
+      padding: 20px;
+      border-radius: 10px;
+      .left {
+        border: 1px solid $white-color;
+        background-color: $background-color;
+        width: 50px;
+        height: 50px;
+        border-radius: 10px;
+        @include flexCenter();
+        margin-top: 10px;
+        margin-right: 15px;
+        svg {
+          transform: scale(1.4);
+          filter: invert(86%) sepia(12%) saturate(1572%) hue-rotate(205deg)
+            brightness(97%) contrast(87%);
+        }
+      }
+      .right {
+        color: $white-color;
+        width: 80%;
+        h3 {
+          font-family: $headings-font;
+          font-weight: 400;
+          letter-spacing: 2px;
+          margin: 10px auto;
+          line-height: 1.4;
+        }
+        p {
+          font-weight: 300;
+          line-height: $main-line-height;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .all {
+    .photo {
+      display: none;
+    }
+    .why {
+      width: 90%;
+    }
+  }
+}

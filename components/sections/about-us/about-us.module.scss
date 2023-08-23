@@ -1,0 +1,55 @@
+@import "@/styles/imports";
+
+.about-us {
+  width: 90%;
+  margin: 20px auto 50px;
+  padding: 20px;
+  @include flexBox(space-around, center);
+  flex-direction: row-reverse;
+  color: white;
+  background-color: $accent-color;
+  border-radius: 10px;
+  .top {
+    width: 50%;
+    text-align: center;
+    .between {
+      display: none;
+    }
+    .description {
+      font-size: 20px;
+      line-height: $main-line-height;
+      letter-spacing: 1px;
+      margin-top: 30px;
+    }
+  }
+  .bottom {
+    width: 40%;
+    img {
+      max-width: 100%;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .about-us {
+    @include flexCenter();
+    flex-direction: column-reverse;
+    .top {
+      width: 90%;
+      .description {
+        margin-top: unset;
+      }
+      .between {
+        @include flexCenter();
+        width: 80%;
+        margin: auto;
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+    .bottom {
+      display: none;
+    }
+  }
+}

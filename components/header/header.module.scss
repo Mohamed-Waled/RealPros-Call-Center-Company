@@ -1,0 +1,218 @@
+@import "@/styles/imports";
+
+#header {
+  font-family: $headings-font;
+  @include flexBox(space-between, center);
+  width: 70%;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9.1px);
+  background-color: rgba($color: $accent-color, $alpha: 0.6);
+  border-radius: 10px;
+  z-index: 10;
+  transition: $main-transition;
+  .menu-button {
+    display: none;
+  }
+  .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .nav-mobile {
+    display: none;
+  }
+  .cta {
+    @include flexBox(space-between, center);
+    width: fit-content;
+    padding: 10px 15px;
+    .contact-us {
+      margin-right: 40px;
+      a {
+        display: block;
+        padding: 10px 35px;
+        letter-spacing: 0.04em;
+        position: relative;
+        border-radius: 0.6em;
+        overflow: hidden;
+        transition: $main-transition;
+        line-height: 1.4em;
+        border: 2px solid $main-color;
+        background: linear-gradient(
+          to right,
+          rgba($color: $main-color, $alpha: 0.1) 1%,
+          transparent 40%,
+          transparent 60%,
+          rgba($color: $main-color, $alpha: 0.1) 100%
+        );
+        color: $main-color;
+        box-shadow: inset 0 0 10px rgba($color: $main-color, $alpha: 0.4),
+          0 0 9px 3px rgba($color: $main-color, $alpha: 0.1);
+      }
+      a:hover {
+        color: $white-color;
+        box-shadow: inset 0 0 10px rgba($color: $main-color, $alpha: 0.6),
+          0 0 9px 3px rgba($color: $main-color, $alpha: 0.2);
+      }
+      a:before {
+        content: "";
+        position: absolute;
+        left: -4em;
+        width: 4em;
+        height: 100%;
+        top: 0;
+        transition: transform 0.4s ease-in-out;
+        background: linear-gradient(
+          to right,
+          transparent 1%,
+          rgba($color: $main-color, $alpha: 0.1) 40%,
+          rgba($color: $main-color, $alpha: 0.1) 60%,
+          transparent 100%
+        );
+      }
+      a:hover:before {
+        transform: translateX(15em);
+      }
+    }
+    .get-a-quote {
+      button {
+        display: block;
+        padding: 10px 35px;
+        letter-spacing: 0.04em;
+        position: relative;
+        border-radius: 0.6em;
+        overflow: hidden;
+        transition: $main-transition;
+        line-height: 1.4em;
+        border: 2px solid $main-color;
+        background: linear-gradient(
+          to right,
+          rgba($color: $main-color, $alpha: 0.1) 1%,
+          transparent 40%,
+          transparent 60%,
+          rgba($color: $main-color, $alpha: 0.1) 100%
+        );
+        color: $main-color;
+        box-shadow: inset 0 0 10px rgba($color: $main-color, $alpha: 0.4),
+          0 0 9px 3px rgba($color: $main-color, $alpha: 0.1);
+        cursor: pointer;
+      }
+      button:hover {
+        color: $white-color;
+        box-shadow: inset 0 0 10px rgba($color: $main-color, $alpha: 0.6),
+          0 0 9px 3px rgba($color: $main-color, $alpha: 0.2);
+      }
+      button:before {
+        content: "";
+        position: absolute;
+        left: -4em;
+        width: 4em;
+        height: 100%;
+        top: 0;
+        transition: transform 0.4s ease-in-out;
+        background: linear-gradient(
+          to right,
+          transparent 1%,
+          rgba($color: $main-color, $alpha: 0.1) 40%,
+          rgba($color: $main-color, $alpha: 0.1) 60%,
+          transparent 100%
+        );
+      }
+      button:hover:before {
+        transform: translateX(15em);
+      }
+    }
+  }
+}
+
+@media (max-width: 1350px) {
+  #header {
+    width: 75%;
+    .cta {
+      padding: 10px;
+      .contact-us {
+        margin-right: 20px;
+        a {
+          padding: 10px 30px;
+          letter-spacing: 0.02em;
+        }
+      }
+      .get-a-quote {
+        a {
+          padding: 10px 30px;
+          letter-spacing: 0.02em;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  #header {
+    width: 85%;
+    .cta {
+      padding: 10px;
+      .contact-us {
+        margin-right: 15px;
+        a {
+          padding: 10px 25px;
+          letter-spacing: 0.01em;
+        }
+      }
+      .get-a-quote {
+        a {
+          padding: 10px 25px;
+          letter-spacing: 0.01em;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 955px) {
+  #header {
+    width: 90%;
+    .cta {
+      .contact-us {
+        margin-right: 10px;
+        a {
+          padding: 10px 20px;
+        }
+      }
+      .get-a-quote {
+        a {
+          padding: 10px 20px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  #header {
+    @include flexBox(space-between, center);
+    width: 90%;
+    height: 65px;
+    .menu-button {
+      display: block;
+      position: absolute;
+      right: 5%;
+    }
+    .logo {
+      left: 5%;
+      transform: unset;
+    }
+    .nav {
+      display: none;
+    }
+    .nav-mobile {
+      display: block;
+    }
+    .cta {
+      display: none;
+    }
+  }
+}
