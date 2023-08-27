@@ -1,0 +1,83 @@
+@import "@/styles/imports";
+
+.head {
+  margin: 150px auto 50px;
+  padding: 20px;
+  width: 80%;
+  @include flexBox(space-around, center);
+  overflow: hidden;
+  .left {
+    width: 45%;
+    h2 {
+      color: $text-color;
+      font-family: $headings-font;
+      font-weight: 400;
+      letter-spacing: 2px;
+      margin: 10px 0;
+      line-height: 1.4;
+      font-size: 50px;
+    }
+  }
+  .right {
+    width: 45%;
+    border-radius: 10px;
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .head {
+    .left {
+      h2 {
+        font-size: 45px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .head {
+    .left {
+      h2 {
+        font-size: 35px;
+      }
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .head {
+    .left {
+      h2 {
+        font-size: 25px;
+      }
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .head {
+    margin: 100px auto -20px;
+    width: 90%;
+    flex-direction: column;
+    .left {
+      width: 100%;
+      margin-bottom: 20px;
+      h2 {
+        font-size: 30px;
+        text-align: center;
+      }
+    }
+    .right {
+      width: 100%;
+      border-radius: 10px;
+      img {
+        max-width: 100%;
+        border-radius: 10px;
+      }
+    }
+  }
+}

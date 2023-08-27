@@ -3,8 +3,8 @@ import classes from "./menuButton.module.scss";
 function MenuButton() {
   return (
     <>
-      <label className={classes.hamburger}>
-        <input type="checkbox" />
+      <label className={classes.hamburger} htmlFor="menuButton">
+        <input type="checkbox" name="menuButton" id="menuButton" />
         <svg viewBox="0 0 32 32">
           <path
             className={`${classes.line} ${classes["line-top-bottom"]}`}

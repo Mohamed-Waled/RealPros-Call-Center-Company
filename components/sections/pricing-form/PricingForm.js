@@ -5,34 +5,18 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import MainTitle from "@/components/layout/main-title/MainTitle";
 import "react-phone-input-2/lib/style.css";
-import classes from "./contact-form.module.scss";
+import classes from "./pricing-form.module.scss";
 
 async function sendingContactData(contactDetails) {
-  if (contactDetails.first_name.length > 50) {
+  if (contactDetails.name.length > 50) {
     throw new Error("your first name should be less than 50 characters");
   }
-  if (contactDetails.first_name.trim() === "") {
+  if (contactDetails.name.trim() === "") {
     throw new Error("Please enter your first name");
   }
-  if (
-    !contactDetails.first_name.match(/^(?=.{1,50}$)[a-z]+(?:['_.\s][a-z]+)*$/i)
-  ) {
+  if (!contactDetails.name.match(/^(?=.{1,50}$)[a-z]+(?:['_.\s][a-z]+)*$/i)) {
     throw new Error(
       "Make sure there is no numbers in the first name or any special character"
-    );
-  }
-
-  if (contactDetails.last_name.length > 50) {
-    throw new Error("your last name should be less than 50 characters");
-  }
-  if (contactDetails.last_name.trim() === "") {
-    throw new Error("Please enter your last name");
-  }
-  if (
-    !contactDetails.last_name.match(/^(?=.{1,50}$)[a-z]+(?:['_.\s][a-z]+)*$/i)
-  ) {
-    throw new Error(
-      "Make sure there is no numbers in the last name or any special character"
     );
   }
 
@@ -59,15 +43,8 @@ async function sendingContactData(contactDetails) {
     );
   }
 
-  if (contactDetails.message.length > 500) {
-    throw new Error("your message should be less than 500 characters");
-  }
-  if (contactDetails.message.trim() === "") {
-    throw new Error("Please enter your message");
-  }
-
   // const res = await fetch(
-  //   "http://192.168.1.3:8000/realpros/public/api/contact",
+  //   "http://192.168.1.3:8000/realpros/public/api/pricingContact",
   //   {
   //     method: "POST",
   //     body: JSON.stringify(contactDetails),
@@ -89,13 +66,8 @@ async function sendingContactData(contactDetails) {
   const data = await res.json();
 }
 
-function ContactForm() {
+function PricingForm() {
   const [enteredFName, setEnteredFName] = useState({
-    value: "",
-    error: "",
-    isError: "",
-  });
-  const [enteredLName, setEnteredLName] = useState({
     value: "",
     error: "",
     isError: "",
@@ -106,11 +78,6 @@ function ContactForm() {
     isError: "",
   });
   const [enteredPhone, setEnteredPhone] = useState({
-    value: "",
-    error: "",
-    isError: "",
-  });
-  const [enteredMessage, setEnteredMessage] = useState({
     value: "",
     error: "",
     isError: "",
@@ -140,34 +107,6 @@ function ContactForm() {
       } else {
         setEnteredFName({
           ...enteredFName,
-          isError: false,
-          error: "",
-        });
-      }
-    }
-    if (name === "enteredLName") {
-      if (value.length > 50) {
-        setEnteredLName({
-          ...enteredLName,
-          isError: true,
-          error: "Please enter last name less than 50 characters",
-        });
-      } else if (value.trim() === "") {
-        setEnteredLName({
-          ...enteredLName,
-          isError: true,
-          error: "Please enter your last name",
-        });
-      } else if (!value.match(/^(?=.{1,50}$)[a-z]+(?:['_.\s][a-z]+)*$/i)) {
-        setEnteredLName({
-          ...enteredLName,
-          isError: true,
-          error:
-            "Make sure there is no numbers in the name or any special character",
-        });
-      } else {
-        setEnteredLName({
-          ...enteredLName,
           isError: false,
           error: "",
         });
@@ -226,38 +165,15 @@ function ContactForm() {
         });
       }
     }
-    if (name === "enteredMessage") {
-      if (value.length > 500) {
-        setEnteredMessage({
-          ...enteredMessage,
-          isError: true,
-          error: "Please enter message less than 500 characters",
-        });
-      } else if (value.trim() === "") {
-        setEnteredMessage({
-          ...enteredMessage,
-          isError: true,
-          error: "Please enter your message",
-        });
-      } else {
-        setEnteredMessage({
-          ...enteredMessage,
-          isError: false,
-          error: "",
-        });
-      }
-    }
   }
 
   async function sendContactDataHandler(e) {
     e.preventDefault();
 
     const newMessage = {
-      first_name: enteredFName.value,
-      last_name: enteredLName.value,
+      name: enteredFName.value,
       email: enteredEMail.value,
       phone: enteredPhone.value,
-      message: enteredMessage.value,
     };
 
     toast.promise(
@@ -267,10 +183,8 @@ function ContactForm() {
         success: {
           render() {
             setEnteredFName({ value: "", error: "", isError: "" });
-            setEnteredLName({ value: "", error: "", isError: "" });
             setEnteredEMail({ value: "", error: "", isError: "" });
             setEnteredPhone({ value: "", error: "", isError: "" });
-            setEnteredMessage({ value: "", error: "", isError: "" });
             return "Sent Successfully!";
           },
         },
@@ -303,17 +217,17 @@ function ContactForm() {
         />
         <div className={classes.contact}>
           <div className={classes.left} data-aos="slide-right">
-            <h2>You Will Hear From Us Very Soon!</h2>
+            <h2>Get In Touch!</h2>
             <p>
               Maximize your productivity with a cloud-based, all-in-one
               predictive dialer. Connect with more leads in less time.
             </p>
-            <p>
+            {/* <p>
               RealPros offers flexible pricing options to help you achieve your
               business goals. Depending on your number of users, we offer
               monthly and yearly service agreements. To learn more, please fill
               out the form.
-            </p>
+            </p> */}
             <div className={classes.right} data-aos="zoom-up">
               <form onSubmit={sendContactDataHandler}>
                 <div className={classes["input-container"]}>
@@ -321,7 +235,7 @@ function ContactForm() {
                     htmlFor="enteredFName"
                     className={classes["input-label"]}
                   >
-                    First Name *:
+                    Your Name *:
                   </label>
                   <input
                     type="text"
@@ -343,35 +257,6 @@ function ContactForm() {
                   />
                   {enteredFName.isError && (
                     <span className={classes.error}>{enteredFName.error}</span>
-                  )}
-                </div>
-                <div className={classes["input-container"]}>
-                  <label
-                    htmlFor="enteredLName"
-                    className={classes["input-label"]}
-                  >
-                    Last Name *:
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Write Your Last Name Here!"
-                    name="enteredLName"
-                    id="enteredLName"
-                    required
-                    className={classes.input}
-                    value={enteredLName.value}
-                    onChange={(e) =>
-                      setEnteredLName({
-                        ...enteredLName,
-                        value: e.target.value,
-                      })
-                    }
-                    onBlur={(e, value) =>
-                      validationHandler(e.target.name, enteredLName.value)
-                    }
-                  />
-                  {enteredLName.isError && (
-                    <span className={classes.error}>{enteredLName.error}</span>
                   )}
                 </div>
                 <div className={classes["input-container"]}>
@@ -436,38 +321,7 @@ function ContactForm() {
                     <span className={classes.error}>{enteredPhone.error}</span>
                   )}
                 </div>
-                <div className={classes["input-container"]}>
-                  <label
-                    htmlFor="enteredMessage"
-                    className={classes["input-label"]}
-                  >
-                    Your Message *:
-                  </label>
-                  <textarea
-                    name="enteredMessage"
-                    id="enteredMessage"
-                    placeholder="Write Your Message Here!"
-                    className={classes.input}
-                    rows="3"
-                    required
-                    value={enteredMessage.value}
-                    onChange={(e) =>
-                      setEnteredMessage({
-                        ...enteredMessage,
-                        value: e.target.value,
-                      })
-                    }
-                    onBlur={(e, value) =>
-                      validationHandler(e.target.name, enteredMessage.value)
-                    }
-                  />
-                  {enteredMessage.isError && (
-                    <span className={classes.error}>
-                      {enteredMessage.error}
-                    </span>
-                  )}
-                </div>
-                <button>CONTACT US</button>
+                <button>Schedule a Meeting</button>
               </form>
             </div>
           </div>
@@ -477,4 +331,4 @@ function ContactForm() {
   );
 }
 
-export default ContactForm;
+export default PricingForm;

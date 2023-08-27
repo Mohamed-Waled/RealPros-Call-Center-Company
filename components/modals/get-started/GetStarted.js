@@ -3,6 +3,7 @@ import { useEffect, useRef, useState, useContext } from "react";
 import { toast } from "react-toastify";
 import PhoneInput from "react-phone-input-2";
 import { motion } from "framer-motion";
+import states from "./unitedStates";
 
 import "react-toastify/dist/ReactToastify.min.css";
 import MainContext from "@/context/main-context";
@@ -22,13 +23,6 @@ async function sendingData(contactDetails) {
     throw new Error(
       "Make sure there is no numbers in the full name or any special character"
     );
-  }
-
-  if (contactDetails.company_name.length > 50) {
-    throw new Error("your company name should be less than 50 characters");
-  }
-  if (contactDetails.company_name.trim() === "") {
-    throw new Error("Please enter your company name");
   }
 
   if (contactDetails.email.trim() === "") {
@@ -76,11 +70,6 @@ async function sendingData(contactDetails) {
 
 function GetStarted() {
   const [enteredFName, setEnteredFName] = useState({
-    value: "",
-    error: "",
-    isError: "",
-  });
-  const [enteredCName, setEnteredCName] = useState({
     value: "",
     error: "",
     isError: "",
@@ -139,27 +128,6 @@ function GetStarted() {
       } else {
         setEnteredFName({
           ...enteredFName,
-          isError: false,
-          error: "",
-        });
-      }
-    }
-    if (name === "enteredCName") {
-      if (value.length > 50) {
-        setEnteredCName({
-          ...enteredCName,
-          isError: true,
-          error: "Please enter company name less than 50 characters",
-        });
-      } else if (value.trim() === "") {
-        setEnteredCName({
-          ...enteredCName,
-          isError: true,
-          error: "Please enter your company name",
-        });
-      } else {
-        setEnteredCName({
-          ...enteredCName,
           isError: false,
           error: "",
         });
@@ -225,9 +193,8 @@ function GetStarted() {
 
     const newMessage = {
       full_name: enteredFName.value,
-      company_name: enteredCName.value,
-      email: enteredEmail.value,
       phone: enteredPhone.value,
+      email: enteredEmail.value,
       c_market: enteredCMarket.value,
       h_about: enteredHAbout.value,
     };
@@ -239,7 +206,6 @@ function GetStarted() {
         success: {
           render() {
             setEnteredFName({ value: "", error: "", isError: "" });
-            setEnteredCName({ value: "", error: "", isError: "" });
             setEnteredEmail({ value: "", error: "", isError: "" });
             setEnteredPhone({ value: "", error: "", isError: "" });
             setEnteredHAbout({ value: "HAbout", error: "", isError: "" });
@@ -265,6 +231,22 @@ function GetStarted() {
       }
     );
   }
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.keyCode === 27) {
+        Ctx.hideModal();
+      }
+    };
+    if (window !== undefined) {
+      if (Ctx.modal === true) {
+        document.addEventListener("keydown", handleKeyDown);
+      }
+    }
+    return () => {
+      document.addEventListener("keydown", handleKeyDown);
+    };
+  });
 
   return isMounted
     ? createPortal(
@@ -334,7 +316,7 @@ function GetStarted() {
                     <span className={classes.error}>{enteredFName.error}</span>
                   )}
                 </div>
-                <div className={classes["input-container"]}>
+                {/* <div className={classes["input-container"]}>
                   <label
                     htmlFor="enteredCName"
                     className={classes["input-label"]}
@@ -362,7 +344,7 @@ function GetStarted() {
                   {enteredCName.isError && (
                     <span className={classes.error}>{enteredCName.error}</span>
                   )}
-                </div>
+                </div> */}
                 <div className={classes["input-container"]}>
                   <label
                     htmlFor="enteredPhone"
@@ -372,7 +354,7 @@ function GetStarted() {
                   </label>
                   <PhoneInput
                     inputClass={classes["phone-input"]}
-                    country={"eg"}
+                    country={"us"}
                     id="enteredPhone"
                     inputProps={{
                       name: "enteredPhone",
@@ -395,7 +377,10 @@ function GetStarted() {
                   )}
                 </div>
                 <div className={classes["input-container"]}>
-                  <label htmlFor="enteredEmail" className={classes["input-label"]}>
+                  <label
+                    htmlFor="enteredEmail"
+                    className={classes["input-label"]}
+                  >
                     E-Mail *:
                   </label>
                   <input
@@ -443,9 +428,18 @@ function GetStarted() {
                     <option disabled value="CMarket">
                       Current Market You Are in
                     </option>
-                    <option value="ga">Georgia (GA)</option>
+                    {states &&
+                      states.map((state) => {
+                        return (
+                          <option
+                            key={state.value}
+                            value={state.value}
+                          >{`${state.title} (${state.value})`}</option>
+                        );
+                      })}
+                    {/* <option value="ga">Georgia (GA)</option>
                     <option value="ca">California (CA)</option>
-                    <option value="fl">Florida (FL)</option>
+                    <option value="fl">Florida (FL)</option> */}
                   </select>
                 </div>
                 <div className={classes["input-container"]}>
@@ -474,7 +468,8 @@ function GetStarted() {
                     <option value="facebook">Facebook</option>
                     <option value="instagram">Instagram</option>
                     <option value="linkedin">LinkedIn</option>
-                    <option value="refer">Refer</option>
+                    <option value="google-ads">Google Ads</option>
+                    <option value="other">Other</option>
                   </select>
                 </div>
                 <button>Get a Quote</button>

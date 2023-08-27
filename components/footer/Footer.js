@@ -149,16 +149,16 @@ function Footer() {
               <p>Site Map:</p>
               <ul>
                 <li>
-                  <Link href="#about-us">About Us</Link>
+                  <Link href="/#about-us">About Us</Link>
                 </li>
                 <li>
-                  <Link href="#how-it-works">How It Works?</Link>
+                  <Link href="/#how-it-works">How It Works?</Link>
                 </li>
                 <li>
-                  <Link href="#pricing-plans">Pricing Plans</Link>
+                  <Link href="/pricing-plans">Pricing Plans</Link>
                 </li>
                 <li>
-                  <Link href="#contact-form">Contact Us</Link>
+                  <Link href="/#contact-form">Contact Us</Link>
                 </li>
               </ul>
             </div>

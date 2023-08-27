@@ -7,7 +7,7 @@ import AboutUs from "../sections/about-us/AboutUs";
 import Banner from "../sections/banner/Banner";
 import ContactForm from "../sections/contact-form/ContactForm";
 import HowItWorks from "../sections/how-it-works/HowItWorks";
-import PricingPlans from "../sections/pricing-plans/PricingPlans";
+// import PricingPlans from "../sections/pricing-plans/PricingPlans";
 import QuoteBlock from "../sections/quote-block/QuoteBlock";
 import WhyUs from "../sections/why-us/WhyUs";
 import classes from "./content-wraper.module.scss";
@@ -45,7 +45,7 @@ function ContentWraper() {
         <Banner />
         <HowItWorks />
         <QuoteBlock />
-        <PricingPlans />
+        {/* <PricingPlans /> */}
         <ContactForm />
         <Footer />
         {Ctx.modal && <GetStarted />}

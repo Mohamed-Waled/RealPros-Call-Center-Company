@@ -1,14 +1,14 @@
 @import "@/styles/imports";
 
 .contact-form {
-  margin: 50px auto 50px;
+  margin: 0 auto 50px;
   .contact {
-    height: 750px;
+    height: 650px;
     margin: 50px auto;
     .left {
       color: $text-color;
       width: 70%;
-      height: 600px;
+      height: 450px;
       background-color: $accent-color-alt;
       @include flexCenter();
       padding: 30px;
@@ -187,11 +187,5 @@
         }
       }
     }
-  }
-}
-
-@media (max-width: 650px) {
-  .contact-form {
-    margin-top: 100px;
   }
 }

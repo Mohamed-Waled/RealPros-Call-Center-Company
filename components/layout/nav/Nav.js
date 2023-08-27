@@ -31,30 +31,30 @@ function Nav() {
           >
             <ul>
               <li>
-                <Link className={classes.link} href="#about-us">
+                <Link className={classes.link} href="/#about-us">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link className={classes.link} href="#how-it-works">
+                <Link className={classes.link} href="/#how-it-works">
                   How it Works?
                 </Link>
               </li>
               <li>
-                <Link className={classes.link} href="#pricing-plans">
+                <Link className={classes.link} href="/pricing-plans">
                   Pricing Plans
                 </Link>
               </li>
               <div className={classes["cta-mobile"]}>
                 <li>
-                  <Link className={classes.link} href="#contact-form">
+                  <Link className={classes.link} href="/#contact-form">
                     Contact Us
                   </Link>
                 </li>
                 <li>
                   <Link
                     className={classes.link}
-                    href="#contact-form"
+                    href="/#contact-form"
                     onClick={(e) => {
                       e.preventDefault();
                       if (menuCtx.modal === false) {

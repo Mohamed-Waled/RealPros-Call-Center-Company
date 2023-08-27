@@ -50,11 +50,31 @@
     }
     .info {
       display: flex;
+      flex-direction: row;
+      background-color: $accent-color;
+    }
+    .info.right {
+      display: flex;
+      flex-direction: row-reverse;
+      background-color: $accent-color;
+    }
+    .info-left,
+    .info-right {
+      display: flex;
       flex-direction: column;
       background-color: $accent-color;
       color: $text-color;
       border-radius: 10px;
       padding: 25px;
+    }
+    .img {
+      width: 400px;
+      height: fit-content;
+      align-self: center;
+      margin: 25px;
+      img {
+        max-width: 100%;
+      }
     }
     .title {
       color: $text-color;
@@ -83,14 +103,48 @@
       line-height: $main-line-height;
       letter-spacing: 1px;
     }
-    .card:nth-child(even) > .info > .title {
+    .card:nth-child(even) > .info > .info-right > .title {
       text-align: right;
     }
-    .card:nth-child(odd) > .info > .title::before {
+    .card:nth-child(odd) > .info > .info-left > .title::before {
       left: -70px;
     }
-    .card:nth-child(even) > .info > .title::before {
+    .card:nth-child(even) > .info > .info-right > .title::before {
       right: -70px;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .how-container {
+    .steps {
+      .timeline {
+        .outer {
+          .card {
+            width: 90%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .how-container {
+    .steps {
+      .timeline {
+        .outer {
+          .card {
+            .info {
+              flex-direction: column;
+              .img {
+                width: fit-content;
+                justify-self: center;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

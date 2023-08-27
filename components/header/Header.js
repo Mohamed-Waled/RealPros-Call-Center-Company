@@ -37,7 +37,7 @@ function Header() {
           transition={{ duration: 0.5 }}
         >
           <div className={classes["contact-us"]}>
-            <Link href="#contact-form">Contact Us</Link>
+            <Link href="/#contact-form">Contact Us</Link>
           </div>
           <div className={classes["get-a-quote"]}>
             <button
