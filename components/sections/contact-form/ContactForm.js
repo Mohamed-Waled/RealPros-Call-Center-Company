@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import MainContext from "@/context/main-context";
 import PhoneInput from "react-phone-input-2";
 import { toast } from "react-toastify";
 
@@ -6,6 +7,7 @@ import "react-toastify/dist/ReactToastify.min.css";
 import MainTitle from "@/components/layout/main-title/MainTitle";
 import "react-phone-input-2/lib/style.css";
 import classes from "./contact-form.module.scss";
+import GetAQuote from "../../modals/get-a-quote/GetAQuote";
 
 async function sendingContactData(contactDetails) {
   if (contactDetails.first_name.length > 50) {
@@ -115,6 +117,8 @@ function ContactForm() {
     error: "",
     isError: "",
   });
+
+  const Ctx = useContext(MainContext);
 
   function validationHandler(name, value) {
     if (name === "enteredFName") {
@@ -271,6 +275,7 @@ function ContactForm() {
             setEnteredEMail({ value: "", error: "", isError: "" });
             setEnteredPhone({ value: "", error: "", isError: "" });
             setEnteredMessage({ value: "", error: "", isError: "" });
+            Ctx.showDiscovery();
             return "Sent Successfully!";
           },
         },
@@ -472,6 +477,9 @@ function ContactForm() {
             </div>
           </div>
         </div>
+        {Ctx.discovery && (
+          <GetAQuote url="https://calendly.com/jacob-dawson201/internal-team" />
+        )}
       </div>
     </>
   );

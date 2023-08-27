@@ -36,3 +36,13 @@ ul {
 ::-webkit-scrollbar-thumb {
   background-color: $main-color-alt;
 }
+
+.calendly-inline-widget {
+  height: 100vh !important;
+}
+
+@media screen and (max-width: 769px) {
+  .calendly-inline-widget {
+    height: 80vh !important;
+  }
+}

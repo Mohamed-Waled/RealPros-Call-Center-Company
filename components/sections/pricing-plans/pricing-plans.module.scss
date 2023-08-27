@@ -107,21 +107,15 @@
             width: fit-content;
             margin: auto;
             p {
-              // border: 1px solid yellow;
               width: 100%;
               position: absolute;
               top: 0px;
-              left: 40%;
-              transform: translateX(-50%);
+              left: 50%;
               font-size: 16px;
               font-family: $headings-font;
               font-style: italic;
-              // transform: rotate(-45deg);
-              // bottom: 5px;
-              // right: -64%;
+              transform: translateX(-50%);
               text-decoration: line-through;
-              // span {
-              // }
             }
           }
           h5 {

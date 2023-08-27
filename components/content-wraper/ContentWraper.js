@@ -16,16 +16,16 @@ import GetAQuote from "../modals/get-a-quote/GetAQuote";
 
 function ContentWraper() {
   const Ctx = useContext(MainContext);
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (Ctx.modal === false) {
-        Ctx.showModal();
-      }
-    }, "3000");
-    return () => {
-      clearTimeout(timer);
-    };
-  }, []);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     if (Ctx.modal === false) {
+  //       Ctx.showModal();
+  //     }
+  //   }, "3000");
+  //   return () => {
+  //     clearTimeout(timer);
+  //   };
+  // }, []);
   useEffect(() => {
     if (window !== undefined) {
       window.addEventListener("scroll", () => {
@@ -50,7 +50,6 @@ function ContentWraper() {
         <Footer />
         {Ctx.modal && <GetStarted />}
         {Ctx.scroll && <ScrollToTop />}
-        {/* {<GetAQuote />} */}
       </div>
     </>
   );

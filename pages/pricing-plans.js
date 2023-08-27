@@ -7,7 +7,7 @@ import PricingHead from "@/components/layout/pricing-head/PricingHead";
 import Footer from "@/components/footer/Footer";
 import PricingForm from "@/components/sections/pricing-form/PricingForm";
 
-function Home() {
+function PricingPage() {
   const Ctx = useContext(MainContext);
 
   useEffect(() => {
@@ -32,4 +32,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default PricingPage;
