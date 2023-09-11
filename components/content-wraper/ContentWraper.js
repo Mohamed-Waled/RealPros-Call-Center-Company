@@ -12,20 +12,20 @@ import QuoteBlock from "../sections/quote-block/QuoteBlock";
 import WhyUs from "../sections/why-us/WhyUs";
 import classes from "./content-wraper.module.scss";
 import ScrollToTop from "../layout/scroll-to-top/ScrollToTop";
-import GetAQuote from "../modals/get-a-quote/GetAQuote";
+// import GetAQuote from "../modals/get-a-quote/GetAQuote";
 
 function ContentWraper() {
   const Ctx = useContext(MainContext);
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     if (Ctx.modal === false) {
-  //       Ctx.showModal();
-  //     }
-  //   }, "3000");
-  //   return () => {
-  //     clearTimeout(timer);
-  //   };
-  // }, []);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (Ctx.modal === false) {
+        Ctx.showModal();
+      }
+    }, "3000");
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
   useEffect(() => {
     if (window !== undefined) {
       window.addEventListener("scroll", () => {

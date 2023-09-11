@@ -1,12 +1,12 @@
 import { useState, useContext } from "react";
 import PhoneInput from "react-phone-input-2";
-import MainContext from "@/context/main-context";
+// import MainContext from "@/context/main-context";
 import { toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.min.css";
 import MainTitle from "@/components/layout/main-title/MainTitle";
 import "react-phone-input-2/lib/style.css";
-import GetAQuote from "../../modals/get-a-quote/GetAQuote";
+// import GetAQuote from "../../modals/get-a-quote/GetAQuote";
 import classes from "./pricing-form.module.scss";
 
 async function sendingContactData(contactDetails) {
@@ -85,7 +85,7 @@ function PricingForm() {
     isError: "",
   });
 
-  const Ctx = useContext(MainContext);
+  // const Ctx = useContext(MainContext);
 
   function validationHandler(name, value) {
     if (name === "enteredFName") {
@@ -189,7 +189,7 @@ function PricingForm() {
             setEnteredFName({ value: "", error: "", isError: "" });
             setEnteredEMail({ value: "", error: "", isError: "" });
             setEnteredPhone({ value: "", error: "", isError: "" });
-            Ctx.showDiscovery();
+            // Ctx.showDiscovery();
             return "Sent Successfully!";
           },
         },
@@ -331,9 +331,9 @@ function PricingForm() {
             </div>
           </div>
         </div>
-        {Ctx.discovery && (
+        {/* {Ctx.discovery && (
           <GetAQuote url="https://calendly.com/d/4cd-tvg-rns/customer-follow-up" />
-        )}
+        )} */}
       </div>
     </>
   );

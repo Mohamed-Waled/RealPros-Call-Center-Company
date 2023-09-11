@@ -21,8 +21,9 @@
   .right {
     width: 45%;
     border-radius: 10px;
+    @include flexCenter();
     img {
-      max-width: 100%;
+      max-width: 75%;
       border-radius: 10px;
     }
   }
