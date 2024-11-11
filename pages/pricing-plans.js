@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useContext, useEffect } from "react";
 
 import MainContext from "@/context/main-context";
@@ -23,6 +24,9 @@ function PricingPage() {
 
   return (
     <>
+        <Head>
+            <title>RealPros - Pricing Plans</title>
+        </Head>
       <PricingHead />
       <PricingPlans />
       <PricingForm />

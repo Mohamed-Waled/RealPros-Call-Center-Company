@@ -13,7 +13,7 @@ function HowItWorks() {
                 <div className={classes.info}>
                   <div className={classes["info-left"]}>
                     <h3 className={classes.title}>
-                      Propstream Targeted List Generator
+                      PropStream Targeted List Generator
                     </h3>
                     <p>
                       Find potential deals by utilizing the most powerful real
@@ -24,7 +24,7 @@ function HowItWorks() {
                     </p>
                   </div>
                   <div className={classes.img}>
-                    <img src="/images/ps.png" />
+                    <img src="/images/ps.png" alt="PropStream" />
                   </div>
                 </div>
               </div>
@@ -42,7 +42,7 @@ function HowItWorks() {
                     </p>
                   </div>
                   <div className={classes.img}>
-                    <img src="/images/xc.png" alt="" />
+                    <img src="/images/xc.png" alt="XenCall" />
                   </div>
                 </div>
               </div>
@@ -59,7 +59,7 @@ function HowItWorks() {
                     </p>
                   </div>
                   <div className={classes.img}>
-                    <img src="/images/as.png" alt="" />
+                    <img src="/images/as.png" alt="asana" />
                   </div>
                 </div>
               </div>
